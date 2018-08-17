@@ -7,4 +7,11 @@ then
 	cp $source $dstdir
 fi
 
+# Ensure opx-pysnmp service is enabled
+if service opx-pysnmp status | grep disabled > /dev/null; then
+    service opx-pysnmp restart > /dev/null
+fi
+
+#DEBHELPER#
+
 exit 0
